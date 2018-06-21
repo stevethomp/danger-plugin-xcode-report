@@ -1,5 +1,5 @@
-import { generateXcodeReport } from "./index"
-import jest from "ts-jest"
+// import { generateXcodeReport } from "./index"
+// import { describe } from "./index"
 
 declare const global: any
 
