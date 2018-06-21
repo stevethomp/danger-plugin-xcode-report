@@ -1,5 +1,4 @@
-// import { generateXcodeReport } from "./index"
-// import { describe } from "./index"
+import { generateXcodeReport } from "./index"
 
 declare const global: any
 
@@ -23,7 +22,8 @@ describe("generateXcodeReport()", () => {
 //       github: { pr: { title: "My Test Title" } },
 //     }
 
-//     xcodeReport()
+    generateXcodeReport({})
+
     expect(true)
 //     expect(global.message).toHaveBeenCalledWith(
 //       "PR Title: My Test Title",
