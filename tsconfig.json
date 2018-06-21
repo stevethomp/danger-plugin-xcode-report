@@ -15,8 +15,8 @@
         ],
         "types": [
             "node"
-        ]
-        // "esModuleInterop": true,
+        ],
+        "esModuleInterop": true,
     },
     "lib": [
         "es2017"
