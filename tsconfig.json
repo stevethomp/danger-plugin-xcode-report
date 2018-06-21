@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "lib": ["es2017"],
+        "rootDir": "src",
+        "outDir": "dist",
+        "allowJs": false,
+        "pretty": true,
+        "strictNullChecks": true,
+        "strict": true,
+        "declaration": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "types": [
+            "node"
+        ]
+        // "esModuleInterop": true,
+    },
+    "lib": [
+        "es2017"
+    ],
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "dangerfile.ts"
+    ],
+    "exclude": [
+        "dangerfile.ts",
+        "node_modules",
+        "dist"
+    ]
+}

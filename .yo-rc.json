@@ -1,0 +1,11 @@
+{
+  "generator-danger-plugin": {
+    "promptValues": {
+      "authorName": "Steven Thompson",
+      "authorEmail": "steve.thomp@me.com",
+      "githubUsername": "stevethomp",
+      "useYarn": true,
+      "useTypeScript": true
+    }
+  }
+}
