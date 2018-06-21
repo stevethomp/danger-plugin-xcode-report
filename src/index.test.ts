@@ -1,4 +1,5 @@
 import { generateXcodeReport } from "./index"
+import jest from "ts-jest"
 
 declare const global: any
 
