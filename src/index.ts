@@ -9,13 +9,29 @@ export declare function warn(message: string): void
 export declare function fail(message: string): void
 export declare function markdown(message: string): void
 
+/**
+ * The configuration options that can be provided to `xcodeReport`.
+ */
 export interface XcodeReportOptions {
+  /**
+   * The path to the generated json file produced by `xcpretty-json-formatter`. Relative to project root, defaults to `./build/reports/errors.json`.
+   */
   pathToReport?: string
+  /**
+   * Whether the test summary message will be reported using danger's `message()`. Defaults to true.
+   */
   showMessageTestSummary?: boolean
+  /**
+   * Whether each test failure will be reported using danger's `fail()`. Defaults to true.
+   */
   showTestFailures?: boolean
 }
 
-export function generateXcodeReport(options: XcodeReportOptions) {
+/**
+ * A Danger plugin to process the xcpretty json output into danger messages.
+ * @param options You must provide an options object, but each has a default value so it can be empty if you want the default configuration.
+ */
+export function xcodeReport(options: XcodeReportOptions) {
   const currentPath: string = options.pathToReport !== undefined ? options.pathToReport! : "./build/reports/errors.json"
   const shouldShowMessageTestSummary: boolean =
     options.showMessageTestSummary !== undefined ? options.showMessageTestSummary! : true

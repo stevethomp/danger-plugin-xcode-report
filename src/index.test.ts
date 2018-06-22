@@ -1,8 +1,8 @@
-import { generateXcodeReport } from "./index"
+import { xcodeReport } from "./index"
 
 declare const global: any
 
-describe("generateXcodeReport()", () => {
+describe("xcodeReport()", () => {
   beforeEach(() => {
     global.warn = jest.fn()
     global.message = jest.fn()
@@ -24,7 +24,7 @@ describe("generateXcodeReport()", () => {
   })
 
   it("Needs a real json file", () => {
-    generateXcodeReport({})
+    xcodeReport({})
 
     expect(global.warn).toHaveBeenCalledWith(
       ":mag: Can't find xcpretty report at `./build/reports/errors.json`, skipping generating Xcode Report."
@@ -32,7 +32,7 @@ describe("generateXcodeReport()", () => {
   })
 
   it("Checks nothing was posted", () => {
-    generateXcodeReport({
+    xcodeReport({
       pathToReport: "./fixtures/errors.json",
       showMessageTestSummary: false,
       showTestFailures: false,
@@ -45,7 +45,7 @@ describe("generateXcodeReport()", () => {
   })
 
   it("Checks summary message was posted", () => {
-    generateXcodeReport({
+    xcodeReport({
       pathToReport: "./fixtures/errors.json",
       showMessageTestSummary: true,
       showTestFailures: false,
@@ -57,7 +57,7 @@ describe("generateXcodeReport()", () => {
   })
 
   it("Checks test failures were failed", () => {
-    generateXcodeReport({
+    xcodeReport({
       pathToReport: "./fixtures/errors.json",
       showMessageTestSummary: false,
       showTestFailures: true,
