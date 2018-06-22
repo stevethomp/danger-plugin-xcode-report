@@ -2,21 +2,6 @@ import { generateXcodeReport } from "./index"
 
 declare const global: any
 
-describe("formattedFilePath()", () => {
-  beforeEach(() => {
-    global.danger = {
-      github: {
-        pr: { title: "My Test Title", base: { repo: { name: "testRepo" } } },
-        utils: { fileLinks: jest.fn(() => "github.com/filelink") },
-      },
-    }
-  })
-
-  afterEach(() => {
-    global.danger = undefined
-  })
-})
-
 describe("generateXcodeReport()", () => {
   beforeEach(() => {
     global.warn = jest.fn()
@@ -36,14 +21,13 @@ describe("generateXcodeReport()", () => {
     global.message = undefined
     global.fail = undefined
     global.markdown = undefined
-    global.danger = undefined
   })
 
   it("Needs a real json file", () => {
     generateXcodeReport({})
 
     expect(global.warn).toHaveBeenCalledWith(
-      ":mag: Can't find xcpretty report at `./build/reports/errors.json`, skipping generating Xcode Report.",
+      ":mag: Can't find xcpretty report at `./build/reports/errors.json`, skipping generating Xcode Report."
     )
   })
 
@@ -68,7 +52,7 @@ describe("generateXcodeReport()", () => {
     })
 
     expect(global.message).toHaveBeenCalledWith(
-      "Executed 166 tests, with 4 failures (0 unexpected) in 0.234 (0.309) seconds",
+      "Executed 166 tests, with 4 failures (0 unexpected) in 0.234 (0.309) seconds"
     )
   })
 
@@ -81,13 +65,13 @@ describe("generateXcodeReport()", () => {
 
     expect(global.fail).toHaveBeenCalledTimes(3)
     expect(global.fail).toHaveBeenCalledWith(
-      '**Tests.NotificationTests - testDisplayName:** XCTAssertEqual failed: ("Test failed!\ngithub.com/filelink',
+      '**Tests.NotificationTests - testDisplayName:** XCTAssertEqual failed: ("Test failed!\ngithub.com/filelink'
     )
     expect(global.fail).toHaveBeenCalledWith(
-      '**Tests.NotificationTests - testOther:** XCTAssertEqual failed: ("Test failed!\ngithub.com/filelink',
+      '**Tests.NotificationTests - testOther:** XCTAssertEqual failed: ("Test failed!\ngithub.com/filelink'
     )
     expect(global.fail).toHaveBeenCalledWith(
-      '**Tests.MoreTests - testMore:** XCTAssertEqual failed: ("Test failed!\ngithub.com/filelink',
+      '**Tests.MoreTests - testMore:** XCTAssertEqual failed: ("Test failed!\ngithub.com/filelink'
     )
   })
 })
