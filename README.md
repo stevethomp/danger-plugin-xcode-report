@@ -23,9 +23,9 @@ import generateXcodeReport from 'danger-plugin-xcode-report'
 generateXcodeReport({})
 ```
 
-In order for this plugin to see your results, danger-plugin-xcode-report expects json formatted results, provided by [xcpretty-json-formatter](https://github.com/marcelofabri/xcpretty-json-formatter). The default export directory is `./build/reports/errors.json`, which is where `danger-plugin-xcode-report` looks for it by default. If you change that just provide a different `pathToReport` in the options.
+This plugin requires json formatted results provided by [xcpretty-json-formatter](https://github.com/marcelofabri/xcpretty-json-formatter). The default export directory is `./build/reports/errors.json`, which is where `danger-plugin-xcode-report` looks for it by default. If you change that just provide a different `pathToReport` in the options.
 
-Take a look at [XcodeReportOptions]() for the options you can provide to the pugin.=
+Take a look at [XcodeReportOptions](https://github.com/stevethomp/danger-plugin-xcode-report/blob/f6f51780fcd2c6988387d92639cfee98b548356a/src/index.ts#L15) for the options you can provide to the pugin.
 
 ## Changelog
 

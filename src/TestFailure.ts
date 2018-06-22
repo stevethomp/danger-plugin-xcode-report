@@ -18,10 +18,10 @@ export class TestFailure {
    * Takes a filePath and turns it into an HTML formatted link, with line number
    */
   formattedFilePath(): string {
-    // Users/steven/Aequilibrium/repos/kinzoo-ios/KinzooTests/Model/ApprovalTests.swift:58
+    // Users/me/TestRepo/repos/repo-ios/Tests/NameTests.swift:58
     // converts to =>
-    // KinzooTests/Model/ApprovalTests.swift#L31
-    // @ts-ignore
+    // Tests/NameTests.swift#L31
+    // @ts-ignore - When tsc runs, it considers this a failure since danger is undefined. But in tests and real production danger is either present or mocked.
     const name = danger.github.pr.base.repo.name
     const fileUrlPath = this.filePath.split(`${name}/`)[1].replace(":", "#L")
     // @ts-ignore
