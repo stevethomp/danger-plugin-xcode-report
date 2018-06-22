@@ -20,7 +20,7 @@
     "ios",
     "xctest"
   ],
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "main": "dist/index",
   "typings": "dist/index",
   "types": "types/index.d.ts",
