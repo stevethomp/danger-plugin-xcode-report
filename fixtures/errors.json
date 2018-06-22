@@ -1,0 +1,50 @@
+{
+  "warnings": [
+
+  ],
+  "ld_warnings": [
+
+  ],
+  "compile_warnings": [
+
+  ],
+  "errors": [
+
+  ],
+  "compile_errors": [
+
+  ],
+  "file_missing_errors": [
+
+  ],
+  "undefined_symbols_errors": [
+
+  ],
+  "duplicate_symbols_errors": [
+
+  ],
+  "tests_failures": {
+    "Tests.MoreTests": [
+      {
+        "file_path": "/Users/steven/steven/repos/testRepo/Tests/Path/To/MoreTests.swift:12",
+        "reason": "XCTAssertEqual failed: (\"Test failed!",
+        "test_case": "testMore"
+      }
+    ],
+    "Tests.NotificationTests": [
+      {
+        "file_path": "/Users/steven/steven/repos/testRepo/Tests/Path/To/NotificationTests.swift:30",
+        "reason": "XCTAssertEqual failed: (\"Test failed!",
+        "test_case": "testOther"
+      },
+      {
+        "file_path": "/Users/steven/steven/repos/testRepo/Tests/Path/To/NotificationTests.swift:49",
+        "reason": "XCTAssertEqual failed: (\"Test failed!",
+        "test_case": "testDisplayName"
+      }
+    ]
+  },
+  "tests_summary_messages": [
+    "\t Executed 166 tests, with 4 failures (0 unexpected) in 0.234 (0.309) seconds\n"
+  ]
+}

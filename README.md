@@ -18,9 +18,9 @@ At a glance:
 
 ```js
 // dangerfile.js
-import xcodeReport from 'danger-plugin-xcode-report'
+import generateXcodeReport from 'danger-plugin-xcode-report'
 
-xcodeReport()
+generateXcodeReport()
 ```
 ## Changelog
 
