@@ -2,6 +2,21 @@ import { generateXcodeReport } from "./index"
 
 declare const global: any
 
+describe("formattedFilePath()", () => {
+  beforeEach(() => {
+    global.danger = {
+      github: {
+        pr: { title: "My Test Title", base: { repo: { name: "testRepo" } } },
+        utils: { fileLinks: jest.fn(() => "github.com/filelink") },
+      },
+    }
+  })
+
+  afterEach(() => {
+    global.danger = undefined
+  })
+})
+
 describe("generateXcodeReport()", () => {
   beforeEach(() => {
     global.warn = jest.fn()
