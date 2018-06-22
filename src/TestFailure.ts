@@ -1,4 +1,5 @@
-import { danger } from "./";
+// import { DangerDSLType } from "../node_modules/danger/distribution/dsl/DangerDSL"
+// export declare var danger: DangerDSLType
 
 export class TestFailure {
   testSuite: string;

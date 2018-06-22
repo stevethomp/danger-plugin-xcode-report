@@ -1,4 +1,4 @@
-import { generateXcodeReport, danger } from "./index"
+import { generateXcodeReport } from "./index"
 
 declare const global: any
 
@@ -18,10 +18,6 @@ describe("generateXcodeReport()", () => {
   })
 
   it("Needs a real json file", () => {
-    global.danger = {
-      github: { pr: { title: "My Test Title", base: { repo: { name: "testRepo" } } } },
-    }
-
     generateXcodeReport({})
 
     expect(global.warn).toHaveBeenCalledWith(
@@ -29,13 +25,25 @@ describe("generateXcodeReport()", () => {
     )
   })
 
-  it("Checks summary message was posted", () => {
-    // Object.defineProperty(danger, "github", { "pr": { "title": "My Test Title", base: { repo: { name: "testRepo" } } } });
+  it("Checks nothing was posted", () => {
     global.danger = {
-      "github": { "pr": { "title": "My Test Title", "base": { "repo": { "name": "testRepo" } } } }
+      github: { pr: { title: "My Test Title", base: { repo: { name: "testRepo" } } }, utils: { fileLinks: jest.fn() } }
     }
   
-    generateXcodeReport({ pathToReport: "./fixtures/errors.json" })
+    generateXcodeReport({ pathToReport: "./fixtures/errors.json", showMessageTestSummary: false, showTestFailures: false })
+
+    expect(global.message).not.toHaveBeenCalled()
+    expect(global.warn).not.toHaveBeenCalled()
+    expect(global.fail).not.toHaveBeenCalled()
+    expect(global.markdown).not.toHaveBeenCalled()
+  })
+
+  it("Checks summary message was posted", () => {
+    global.danger = {
+      github: { pr: { title: "My Test Title", base: { repo: { name: "testRepo" } } }, utils: { fileLinks: jest.fn() } }
+    }
+  
+    generateXcodeReport({ pathToReport: "./fixtures/errors.json", showMessageTestSummary: true, showTestFailures: false })
 
     expect(global.message).toHaveBeenCalledWith(
       "Executed 166 tests, with 4 failures (0 unexpected) in 0.234 (0.309) seconds",

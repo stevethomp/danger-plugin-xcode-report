@@ -16,9 +16,9 @@ interface XcodeReportOptions {
 }
 
 export function generateXcodeReport(options: XcodeReportOptions) {
-  const currentPath: string = options.pathToReport || "./build/reports/errors.json"
-  const shouldShowMessageTestSummary: boolean = options.showMessageTestSummary || true
-  const shouldShowTestFailures: boolean = options.showTestFailures || true
+  const currentPath: string = options.pathToReport !== undefined ? options.pathToReport! : "./build/reports/errors.json"
+  const shouldShowMessageTestSummary: boolean = options.showMessageTestSummary !== undefined ? options.showMessageTestSummary! : true
+  const shouldShowTestFailures: boolean = options.showTestFailures !== undefined ? options.showTestFailures! : true
 
   if (existsSync(currentPath)) {
     const fileText = readFileSync(currentPath, "utf8")

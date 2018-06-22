@@ -20,7 +20,7 @@ At a glance:
 // dangerfile.js
 import generateXcodeReport from 'danger-plugin-xcode-report'
 
-generateXcodeReport()
+generateXcodeReport({})
 ```
 ## Changelog
 
