@@ -21,7 +21,8 @@ export class TestFailure {
     // Users/me/TestRepo/repos/repo-ios/Tests/NameTests.swift:58
     // converts to =>
     // Tests/NameTests.swift#L31
-    // @ts-ignore - When tsc runs, it considers this a failure since danger is undefined. But in tests and real production danger is either present or mocked.
+    // In tests and production danger is either present or mocked, so we can safely ignore the next line.
+    // @ts-ignore - When tsc runs, it considers this a failure since danger is undefined
     const name = danger.github.pr.base.repo.name
     const fileUrlPath = this.filePath.split(`${name}/`)[1].replace(":", "#L")
     // @ts-ignore

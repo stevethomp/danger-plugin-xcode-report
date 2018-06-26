@@ -20,12 +20,16 @@ At a glance:
 // dangerfile.js
 import generateXcodeReport from 'danger-plugin-xcode-report'
 
-generateXcodeReport({})
+generateXcodeReport({}) // With optional XcodeReportOptions
 ```
 
 This plugin requires json formatted results provided by [xcpretty-json-formatter](https://github.com/marcelofabri/xcpretty-json-formatter). The default export directory is `./build/reports/errors.json`, which is where `danger-plugin-xcode-report` looks for it by default. If you change that just provide a different `pathToReport` in the options.
 
 Take a look at [XcodeReportOptions](https://github.com/stevethomp/danger-plugin-xcode-report/blob/f6f51780fcd2c6988387d92639cfee98b548356a/src/index.ts#L15) for the options you can provide to the pugin.
+
+## Acknowledgements
+
+This plugin owes everything to the origin plugin for Danger Ruby, by Diogot, [danger-xcode-summary](https://github.com/diogot/danger-xcode_summary). All credit for the idea goes to Diogot, this plugin just grew out of my desire for the same for Danger.js.
 
 ## Changelog
 
@@ -34,3 +38,7 @@ See the GitHub [release history](https://github.com/stevethomp/danger-plugin-xco
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Code of Conduct
+
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).

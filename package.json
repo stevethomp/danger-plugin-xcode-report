@@ -16,9 +16,12 @@
   "keywords": [
     "danger",
     "danger-plugin",
+    "danger.js",
     "xcode",
     "ios",
-    "xctest"
+    "xctest",
+    "xcodebuild",
+    "xcpretty"
   ],
   "version": "0.1.1",
   "main": "dist/index",
