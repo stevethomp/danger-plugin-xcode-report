@@ -12,7 +12,7 @@ export class TestFailure {
   }
   /** Formats a message for the test failure */
   formattedMessage() {
-    return `**${this.testSuite} - ${this.testCase}:** ${this.reason}\n${this.formattedFilePath()}`
+    return `**${this.testSuite} - ${this.testCase}:** \`${this.reason.trim()}\`\n${this.formattedFilePath()}`
   }
   /**
    * Takes a filePath and turns it into an HTML formatted link, with line number
