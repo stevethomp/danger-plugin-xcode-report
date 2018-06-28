@@ -25,6 +25,10 @@ export interface XcodeReportOptions {
    * Whether each test failure will be reported using danger's `fail()`. Defaults to true.
    */
   showTestFailures?: boolean
+  /**
+   * Custom name of the workspace, which will appear in file locations
+   */
+  workspace?: string
 }
 
 /**
@@ -36,6 +40,8 @@ export function xcodeReport(options: XcodeReportOptions) {
   const shouldShowMessageTestSummary: boolean =
     options.showMessageTestSummary !== undefined ? options.showMessageTestSummary! : true
   const shouldShowTestFailures: boolean = options.showTestFailures !== undefined ? options.showTestFailures! : true
+  // @ts-ignore - When tsc runs, it considers this a failure since danger is undefined
+  const workspace: string = options.workspace !== undefined ? options.workspace : danger.github.pr.base.repo.name
 
   if (existsSync(currentPath)) {
     const fileText = readFileSync(currentPath, "utf8")
@@ -50,20 +56,20 @@ export function xcodeReport(options: XcodeReportOptions) {
     if (shouldShowTestFailures) {
       // Fail with each test failure
       const testsFailures = fileJSON["tests_failures"]
-      findFailures(testsFailures)
+      findFailures(testsFailures, workspace)
     }
   } else {
     warn(`:mag: Can't find xcpretty report at \`${currentPath}\`, skipping generating Xcode Report.`)
   }
 }
 
-function findFailures(testFailures: any) {
+function findFailures(testFailures: any, workspace: string) {
   for (const testSuite in testFailures) {
     if (testFailures.hasOwnProperty(testSuite)) {
       const suiteFailures = testFailures[testSuite]
 
       suiteFailures.forEach((failure: any) => {
-        const newFail = new TestFailure(failure, testSuite)
+        const newFail = new TestFailure(failure, testSuite, workspace)
         fail(newFail.formattedMessage())
       })
     }
